@@ -32,7 +32,7 @@
 }
 .nav {
   flex: 0 0 auto;
-  width: 100px;
+  width: 200px;
   padding: 16px;
   text-align: left;
   .router-item{

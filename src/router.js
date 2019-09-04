@@ -18,6 +18,18 @@ let routes = [
     component: () => import(/* webpackChunkName: "debounce" */ './views/debounce/index')
   },
   {
+    babel: '模块内部数据的私有化',
+    path: '/modelDemo',
+    name: 'modelDemo',
+    component: () => import(/* webpackChunkName: "modelDemo" */ './views/modelDemo')
+  },
+  {
+    babel: 'vuex的getter触发',
+    path: '/vuexGetter',
+    name: 'vuexGetter',
+    component: () => import(/* webpackChunkName: "vuexGetter" */ './views/vuexGetter')
+  },
+  {
     babel: 'demo',
     path: '/demo',
     name: 'demo',
