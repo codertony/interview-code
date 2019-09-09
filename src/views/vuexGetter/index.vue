@@ -14,7 +14,7 @@
     data() {
       return {
         i: 0,
-        list: [4,5],
+        list: [7, 4, 5, 3, 6],
         input: ''
       }
     },
