@@ -6,6 +6,20 @@
 <script>
   import React from 'react'
   import ReactDom from 'react-dom'
+  function gTest() {
+    
+    console.log('gTest', this)
+    void (() => console.log('insertArrow', this))();
+  }
+  let gTestArrow = new function() {
+    this.a = 1
+    return () => {
+      console.log('gTestArrow', this)
+    }
+  };
+  gTest()
+  gTestArrow()
+  console.log('----------全局函数调用-----------')
   let vueMap = {
     data() {
       console.log(this)
@@ -19,17 +33,23 @@
       },
       testArrow: () => {
         console.log(this)
-      }
+      },
+      gTest,
+      gTestArrow
     },
     mounted() {
       console.log(this)
       this.test()
       this.testArrow()
+      this.gTest()
+      this.gTestArrow()
     }
   }
   vueMap.data()
   vueMap.methods.test()
   vueMap.methods.testArrow()
+  vueMap.methods.gTest()
+  vueMap.methods.gTestArrow()
   console.log('------------以上是未实例化vue对象---------------------')
   let vueMap2 = {
     data() {
@@ -44,23 +64,29 @@
       },
       testArrow: () => {
         console.log(this)
-      }
+      },
+      gTest,
+      gTestArrow
     },
     mounted() {
       console.log(this)
       this.test()
+      this.testArrow()
     }
   }
 
   vueMap2.data()
   vueMap2.methods.test()
   vueMap2.methods.testArrow()
-
+  vueMap.methods.gTest()
+  vueMap.methods.gTestArrow()
   console.log('------------以上是普通对象---------------------')
   class ClassMap{
     constructor() {
       console.log(this)
       this.a = '1'
+      this.gTest = gTest
+      this.gTestArrow = gTestArrow
     }
     test() {
       console.log(this)
@@ -71,23 +97,31 @@
   }
 
   let bb = new ClassMap()
-  console.log(bb.a)
   bb.test()
   bb.testArrow()
+  bb.gTest()
+  bb.gTestArrow()
+  console.log('-------------以上是class实例--------------------')
   let aa = {
     test: bb.test,
-    testArrow: bb.testArrow
+    testArrow: bb.testArrow,
+    gTest: bb.gTest,
+    gTestArrow: bb.gTestArrow
   }
   aa.test()
   aa.testArrow()
-  console.log('-------------以上是class实例--------------------')
-
+  aa.gTest()
+  aa.gTestArrow()
+  console.log('-------------以上是class实例方法赋值普通对象--------------------')
+  
    class ReactTest extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
         a: '1'
       }
+      this.gTest = gTest
+      this.gTestArrow = gTestArrow
     }
     test() {
       console.log(this)
@@ -104,8 +138,11 @@
       )
      }
      componentDidMount() {
-      this.test()
+       this.test()
        this.testArrows()
+       this.gTest()
+       this.gTestArrow()
+       
        console.log('-------------以上是react实例--------------------')
      }
    }
