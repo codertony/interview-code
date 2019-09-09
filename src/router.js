@@ -30,6 +30,12 @@ let routes = [
     component: () => import(/* webpackChunkName: "vuexGetter" */ './views/vuexGetter')
   },
   {
+    babel: '自动移bind',
+    path: '/myBind',
+    name: 'myBind',
+    component: () => import(/* webpackChunkName: "myBind" */ './views/myBind')
+  },
+  {
     babel: 'demo',
     path: '/demo',
     name: 'demo',

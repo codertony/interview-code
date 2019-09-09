@@ -8,20 +8,23 @@
   </div>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
   import modelStore from './store'
   export default {
     data() {
       return {
         i: 0,
-        list: [7, 4, 5, 3, 6],
+        list: [4,5],
         input: ''
       }
     },
     methods: {
       add() {
         this.list.push(this.input)
-      }
+      },
+      ...mapMutations({
+        getDataM: 'GetterTest/getDataM'
+      })
     },
     computed: {
       getVal: function () {
