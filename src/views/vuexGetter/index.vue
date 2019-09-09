@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
   import modelStore from './store'
   export default {
     name: 'Vuex-Getter',
@@ -22,7 +22,10 @@
     methods: {
       add() {
         this.list.push(this.input)
-      }
+      },
+      ...mapMutations({
+        getDataM: 'GetterTest/getDataM'
+      })
     },
     computed: {
       getVal: function () {

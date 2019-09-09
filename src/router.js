@@ -36,6 +36,18 @@ let routes = [
     component: () => import(/* webpackChunkName: "promiseDemo" */ './views/promiseDemo')
   },
   {
+    babel: '自定义bind',
+    path: '/myBind',
+    name: 'myBind',
+    component: () => import(/* webpackChunkName: "myBind" */ './views/myBind')
+  },
+  {
+    babel: 'thisDemo',
+    path: '/thisDemo',
+    name: 'thisDemo',
+    component: () => import(/* webpackChunkName: "thisDemo" */ './views/thisDemo/index')
+  },
+  {
     babel: 'demo',
     path: '/demo',
     name: 'demo',
