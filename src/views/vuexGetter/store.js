@@ -12,7 +12,7 @@ export default {
       console.log(key)
       let data = state.dataMap[key]
       if(!data) {
-        data = {}
+        data = state.dataMap[key] = {}
         $store.dispatch('GetterTest/setData', key)
       }
       return data

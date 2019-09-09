@@ -14,5 +14,5 @@ let $store = new Vuex.Store({
   actions: {
   }
 })
-
+window.$store = $store
 export default $store

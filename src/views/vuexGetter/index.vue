@@ -11,6 +11,7 @@
   import { mapGetters } from 'vuex'
   import modelStore from './store'
   export default {
+    name: 'Vuex-Getter',
     data() {
       return {
         i: 0,
@@ -32,7 +33,7 @@
       })
     },
     beforeCreate() {
-      this.$store.registerModule('GetterTest', modelStore)
+      this.$store.GetterTest || this.$store.registerModule('GetterTest', modelStore)
     }
   }
 </script>

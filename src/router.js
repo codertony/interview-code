@@ -30,6 +30,12 @@ let routes = [
     component: () => import(/* webpackChunkName: "vuexGetter" */ './views/vuexGetter')
   },
   {
+    babel: 'promise执行顺序测试',
+    path: '/promiseDemo',
+    name: 'promiseDemo',
+    component: () => import(/* webpackChunkName: "promiseDemo" */ './views/promiseDemo')
+  },
+  {
     babel: 'demo',
     path: '/demo',
     name: 'demo',
