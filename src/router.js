@@ -36,6 +36,12 @@ let routes = [
     component: () => import(/* webpackChunkName: "myBind" */ './views/myBind')
   },
   {
+    babel: 'thisDemo',
+    path: '/thisDemo',
+    name: 'thisDemo',
+    component: () => import(/* webpackChunkName: "thisDemo" */ './views/thisDemo/index')
+  },
+  {
     babel: 'demo',
     path: '/demo',
     name: 'demo',
