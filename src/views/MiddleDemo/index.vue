@@ -42,7 +42,7 @@
               :child-length="1"
               type="grid"
       />
-      <div class="">
+      <div class="parent">
         <BoxItem
                 title="需要三层元素才能实现, 第一层不可以是flex"
                 :child-length="2"
