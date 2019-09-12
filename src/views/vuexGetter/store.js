@@ -3,7 +3,6 @@ import $store from '../../store'
 
 let i = 0;
 let num = 1;
-let setNum = 1;
 export default {
   namespaced: true,
   state: {
@@ -30,7 +29,7 @@ export default {
   mutations: {
   },
   actions: {
-    setData({state, dispatch}, key) {
+    setData({state}, key) {
       setTimeout(() => {
         Vue.set(state.dataMap, key, {
           val: key + (++i),
@@ -39,7 +38,7 @@ export default {
         $store.updataDebounce(state.dataMap)
       })
     },
-    test({state, dispatch}, key) {
+    test({state}, key) {
       Vue.delete(state.dataMap, key)
       Vue.set(state.dataMap, key, {
         val: key + (++i),

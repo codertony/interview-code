@@ -26,7 +26,7 @@ let $store = new Vuex.Store({
  */
 let debounceMap = new Map()
 $store.updataDebounce = function(data, wait = 100) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     let waitTimer = 0
     if (debounceMap.has(data)) {
       waitTimer = debounceMap.get(data)
